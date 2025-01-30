@@ -1,0 +1,10 @@
+{% for p in parent %}
+<li>
+    {{p.category_name}}
+    {% if p.data %}
+    <ul>
+        {% include "Admin/DisplayCat.html" with parent=p.data %}
+    </ul>
+    {% endif %}
+</li>
+{% endfor %}
