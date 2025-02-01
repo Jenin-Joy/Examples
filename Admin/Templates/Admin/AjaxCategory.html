@@ -1,0 +1,21 @@
+SubCategory
+<select name="sel_subcat" id="sel_subcat">
+    <option value="">...Select...</option>
+    {% for i in subcat %}
+    <option value="{{i.id}}">{{i.category_name}}</option>
+    {% endfor %}
+</select>
+<script>
+    $("#sel_subcat").change(function () {
+        var did = $(this).val();
+        var ur = "{% url 'Admin:ajaxcategory' %}"
+        $.ajax({
+            url: ur,
+            data: { did: did, },
+            success: function (data) {
+                // console.log(data);
+                $("#result").html(data);
+            },
+        });
+    });
+</script>

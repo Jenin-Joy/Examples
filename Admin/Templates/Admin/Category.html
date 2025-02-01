@@ -32,7 +32,7 @@
 
     {% for i in category %}
         <li>
-            {{ i.category_name}}
+            {{ i.category_name}} <a href="{% url 'Admin:deletecategory' i.id %}">Delete</a>
             {% if i.data %}
             <ul>
                 <!-- <li>{{p.category_name}}</li> -->
